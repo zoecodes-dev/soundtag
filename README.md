@@ -41,7 +41,7 @@ notebooks/   AST 모델 실험 노트북
 
 ```bash
 python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt          # (의존성 정리 예정)
+pip install -r requirements.txt
 cp .env.example .env                       # API 키 채우기
 
 python scripts/soundtag.py <audio_file>    # 음원 분리 + 분석
