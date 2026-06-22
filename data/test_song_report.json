@@ -1,0 +1,15 @@
+{
+  "bpm": 152.0,
+  "key": "Ab major",
+  "key_confidence": 0.62,
+  "danceability": 1.018,
+  "duration": 169.7,
+  "drum_pattern": "Moderate",
+  "drum_hits_per_sec": 3.5,
+  "stems": {
+    "vocals": 25.3,
+    "drums": 20.8,
+    "bass": 35.8,
+    "other": 18.1
+  }
+}

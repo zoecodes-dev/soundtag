@@ -1,0 +1,921 @@
+{
+  "_meta": {
+    "version": "3.0",
+    "last_updated": "2026-03-18",
+    "total_genres": 161,
+    "update_method": "Claude API auto-collection + A&R user feedback",
+    "description": "K-pop A&R을 위한 장르 분류 체계. Tier 시스템으로 K-pop 트렌드 연관성을 구분.",
+    "tier_system": {
+      "1_core": "K-pop이 직접적으로 차용하는 장르. 타이틀곡 레퍼런스 핵심.",
+      "2_adjacent": "간접 차용 또는 프로덕션 요소 단위로 활용 가능한 장르. B사이드/실험적 트랙에 등장.",
+      "3_detection": "K-pop 트렌드와 거리가 있지만, 정확한 분류를 위해 존재. 이 장르로 분류되면 A&R에게 '메인스트림 트렌드와 거리가 있음'을 알려줌.",
+      "4_horizon": "아직 K-pop에서 본격적으로 차용하지 않았지만, A&R이 알면 새로운 방향을 열 수 있는 장르. 'New Horizon' — 새로운 인사이트의 원천."
+    },
+    "tier_usage_in_report": {
+      "tier_1": "트렌드 적합. 타이틀곡 후보로 검토 가능.",
+      "tier_2": "부분 차용 가능. 프로덕션 요소나 B사이드/컨셉 앨범에 적합.",
+      "tier_3": "주의 필요. K-pop 메인스트림 트렌드와 거리가 있는 사운드 프로필.",
+      "tier_4": "New Horizon. 아직 K-pop에서 미개척이지만, 차용 시 차별화된 사운드를 만들 수 있는 장르. A&R의 새로운 영감 소스."
+    }
+  },
+  "Pop": {
+    "_description": "대중 팝 음악. K-pop의 기본 뼈대이자 가장 넓은 카테고리.",
+    "genres": {
+      "Dance Pop": {
+        "tier": 1,
+        "clap_text": "upbeat pop music with four-on-the-floor kick drum, bright synth hooks, catchy vocal melody, high energy chorus",
+        "insight": "K-pop 메인스트림의 기본. BTS Dynamite, BLACKPINK 대부분이 여기."
+      },
+      "Synth Pop": {
+        "tier": 1,
+        "clap_text": "electronic pop with prominent synthesizer melodies, drum machine beats, polished production, retro 80s influenced sound",
+        "insight": "2020년대 레트로 붐으로 재부상. The Weeknd Blinding Lights가 트리거."
+      },
+      "Electropop": {
+        "tier": 1,
+        "clap_text": "pop music driven by electronic beats and heavy synth textures, autotune vocals, modern crisp production",
+        "insight": "K-pop과 경계가 거의 없는 장르. aespa, ITZY 스타일."
+      },
+      "Art Pop": {
+        "tier": 2,
+        "clap_text": "experimental pop with unconventional song structures, artistic production choices, avant-garde sonic elements mixed with pop melody",
+        "insight": "Bjork, FKA twigs 계열. K-pop에서는 컨셉추얼 앨범에 등장."
+      },
+      "Bubblegum Pop": {
+        "tier": 1,
+        "clap_text": "extremely catchy and cheerful pop music, simple chord progressions, bright tones, youthful energy, repetitive hooks",
+        "insight": "귀여운 컨셉 걸그룹의 기본. TWICE 초기, OH MY GIRL."
+      },
+      "Indie Pop": {
+        "tier": 2,
+        "clap_text": "quirky and alternative approach to pop, unconventional instrumentation, less polished than mainstream, lo-fi charm",
+        "insight": "K-인디 씬의 핵심. 멜로망스, 볼빨간사춘기 계열."
+      },
+      "Dream Pop": {
+        "tier": 2,
+        "clap_text": "ethereal and atmospheric pop, heavy reverb, soft whispery vocals, shimmering guitars, hazy and dreamy texture",
+        "insight": "무드 중심 트랙. Red Velvet 일부 B사이드."
+      },
+      "Dark Pop": {
+        "tier": 1,
+        "clap_text": "moody pop music with minor key melodies, dark atmospheric synths, emotional intensity, brooding undertone",
+        "insight": "Billie Eilish 이후 글로벌 트렌드. K-pop 다크 컨셉의 기반."
+      },
+      "Tropical Pop": {
+        "tier": 2,
+        "clap_text": "pop music with Caribbean and tropical influences, steel drums, reggaeton rhythm elements, warm and bright tones",
+        "insight": "2016-2018 대유행 후 약화. 간헐적으로 여름 타이틀에 등장."
+      },
+      "Hyperpop": {
+        "tier": 2,
+        "clap_text": "maximalist distorted pop with pitch-shifted vocals, glitchy bass, chaotic layered production, extreme energy",
+        "insight": "Gen Z 핵심 장르. 100 gecs 기원. K-pop 실험적 트랙에 영향."
+      },
+      "Y2K Pop": {
+        "tier": 1,
+        "clap_text": "2000s nostalgia pop with glossy production, R&B vocal runs, teen pop energy, early digital aesthetic",
+        "insight": "2024-2025 리바이벌 트렌드. NewJeans가 이 레퍼런스를 적극 활용."
+      },
+      "Country Pop": {
+        "tier": 2,
+        "clap_text": "pop music with country elements, acoustic guitar, twangy vocals, Nashville production, storytelling lyrics",
+        "insight": "Beyonce Cowboy Carter 이후 팝 시장에서 급부상. K-pop도 차용 시작."
+      }
+    }
+  },
+  "Hip Hop": {
+    "_description": "힙합 전반. K-pop의 두 번째 큰 뼈대. 비트와 리듬의 핵심 소스.",
+    "genres": {
+      "Trap": {
+        "tier": 1,
+        "clap_text": "heavy 808 sub bass, rapid hi-hat rolls, deep kick drums, dark minor key melodies, sparse arrangement emphasis on bass and drums",
+        "insight": "2010년대 이후 K-pop 비트의 절반 이상이 트랩 기반."
+      },
+      "Boom Bap": {
+        "tier": 2,
+        "clap_text": "classic hip hop with punchy sampled drums, vinyl crackle, jazz or soul samples, head-nodding groove",
+        "insight": "올드스쿨 힙합. K-힙합 정통파 래퍼들이 선호."
+      },
+      "Drill": {
+        "tier": 1,
+        "clap_text": "dark aggressive trap variant, sliding 808 bass, fast hi-hats, minor key piano melodies, ominous atmosphere",
+        "insight": "2020년대 글로벌 확산. Stray Kids 등 K-pop 하드코어 트랙에 차용."
+      },
+      "UK Drill": {
+        "tier": 2,
+        "clap_text": "drill music with UK rhythmic influence, sliding 808 bass, darker production, distinctive flow pattern",
+        "insight": "런던 씬. 시카고 드릴과 사운드가 확연히 다름."
+      },
+      "Atlanta Trap": {
+        "tier": 1,
+        "clap_text": "southern trap with heavy 808, rapid hi-hats, melodic ad-libs, auto-tuned vocals over dark beats",
+        "insight": "Future, Young Thug 계보. K-pop 트랩 비트의 주요 레퍼런스."
+      },
+      "Cloud Rap": {
+        "tier": 2,
+        "clap_text": "dreamy atmospheric hip hop, reverb-heavy vocals, ethereal synths, lo-fi production, spacey floating feel",
+        "insight": "Yung Lean 계열. 몽환적 힙합."
+      },
+      "Phonk": {
+        "tier": 2,
+        "clap_text": "memphis rap revival with chopped soul samples, cowbell patterns, distorted 808, dark aggressive drift aesthetic",
+        "insight": "2023-2025 TikTok/게임 문화와 결합해 폭발적 성장."
+      },
+      "Drift Phonk": {
+        "tier": 2,
+        "clap_text": "phonk variant with heavy distorted bass, aggressive cowbell, lo-fi dark atmosphere, car drift culture aesthetic",
+        "insight": "브라질/동유럽 중심 성장. São Paulo에서 5배 다운로드 증가 (2024)."
+      },
+      "Rage": {
+        "tier": 2,
+        "clap_text": "extremely energetic trap with distorted synths, aggressive 808 patterns, shouting vocals, chaotic production",
+        "insight": "Playboi Carti/Destroy Lonely 계열. 에너지 극대화."
+      },
+      "Plugg": {
+        "tier": 2,
+        "clap_text": "melodic bouncy trap subgenre, bell-like melodies, playful 808 patterns, video game influenced dreamy sounds",
+        "insight": "2020년대 언더그라운드 핵심."
+      },
+      "Pluggnb": {
+        "tier": 1,
+        "clap_text": "fusion of plugg trap melodies with 90s R&B smooth vocals, dreamy bell sounds, soft 808, romantic atmosphere",
+        "insight": "2024 Splice 342% 성장. 트랩+R&B 퓨전의 최신 형태."
+      },
+      "Lowend": {
+        "tier": 2,
+        "clap_text": "minimal hip hop with clapping metronome rhythm, booming bass, stripped-down beat, short energetic tracks under two minutes",
+        "insight": "2024-2025 밀워키 발 신생 장르. TikTok 바이럴."
+      },
+      "Conscious Hip Hop": {
+        "tier": 2,
+        "clap_text": "lyrical thoughtful hip hop, jazz or soul influenced production, meaningful content, live instrumentation",
+        "insight": "Kendrick, J. Cole 계열. 가사와 메시지 중심."
+      },
+      "West Coast Hip Hop": {
+        "tier": 2,
+        "clap_text": "G-funk influenced smooth synth leads, deep bass, laid-back groove, funk samples, talk-box and vocoder",
+        "insight": "Dr. Dre, Snoop 계보. DJ Mustard/Kendrick으로 2020년대 부활. K-pop 레이드백 힙합에 영향."
+      },
+      "East Coast Hip Hop": {
+        "tier": 2,
+        "clap_text": "boom bap foundation, jazz and soul samples, lyrical focus, hard-hitting drums, New York attitude",
+        "insight": "뉴욕 힙합 전통. Boom Bap과 겹치지만 지역 특성이 다름. 가사 중심."
+      },
+      "Memphis Rap": {
+        "tier": 2,
+        "clap_text": "lo-fi dark hip hop, distorted 808, horror-movie samples, triple-six influenced, aggressive delivery",
+        "insight": "Three 6 Mafia 기원. 포닉(Phonk)의 직접적 뿌리. 다크 힙합의 원조."
+      },
+      "Crunk": {
+        "tier": 4,
+        "clap_text": "high energy southern club hip hop, heavy 808 bass, shouted call-and-response vocals, aggressive synths, Lil Jon style party energy",
+        "insight": "Lil Jon 계열. Miami Bass에서 파생. 2000년대 클럽 힙합의 왕. 콜앤리스폰스 에너지는 K-pop 퍼포먼스와 궁합."
+      },
+      "Snap Music": {
+        "tier": 4,
+        "clap_text": "minimalist southern hip hop with finger snaps, thin beats, catchy simple hooks, laid-back groove, Atlanta originated",
+        "insight": "크렁크의 라이트 버전. D4L 'Laffy Taffy'. 미니멀 비트의 중독성. K-pop 캐주얼 트랙에 차용 가능."
+      },
+      "Chopped and Screwed": {
+        "tier": 4,
+        "clap_text": "slowed-down hip hop with pitch-shifted vocals, screwed tempo, hypnotic looped sections, Houston purple drank aesthetic",
+        "insight": "DJ Screw 창시. Cloud Rap의 뿌리. 슬로우 + 몽환 기법. K-pop 인트로/아웃트로나 리믹스에 활용 가능."
+      },
+      "Hyphy": {
+        "tier": 4,
+        "clap_text": "Bay Area uptempo hip hop, hyperactive energy, booming bass, chaotic vocals, ghostriding aesthetic, E-40 style",
+        "insight": "샌프란시스코 베이 에어리어. DJ Mustard/ratchet의 뿌리. K-pop 파티 트랙에 에너지 차용 가능."
+      },
+      "G-Funk": {
+        "tier": 4,
+        "clap_text": "West Coast funk-driven hip hop, smooth synth leads, deep 808 bass, Parliament-Funkadelic samples, laid-back bounce, talk-box",
+        "insight": "Dr. Dre 'The Chronic'. 서해안 힙합의 상징. 펑키 K-pop 트랙의 소스."
+      },
+      "Dirty South": {
+        "tier": 4,
+        "clap_text": "southern US hip hop with 808 drums, brass sounds, trance synths, organ slides, bounce influence, party-oriented",
+        "insight": "남부 힙합 총칭. Outkast, UGK, Ludacris. Trap 이전 남부 사운드의 다양성."
+      },
+      "Grime": {
+        "tier": 4,
+        "clap_text": "UK electronic hip hop, fast aggressive MC delivery, 140 BPM, dark synth stabs, garage and jungle influenced bass, London originated",
+        "insight": "Skepta, Stormzy 계열. UK 힙합의 독자적 장르. 빠른 BPM과 공격적 에너지. K-pop 하드코어 트랙에 새로운 질감 가능."
+      },
+      "Emo Rap": {
+        "tier": 4,
+        "clap_text": "hip hop fused with emo rock emotion, sad melodic autotune vocals, guitar samples over trap beats, vulnerable confessional lyrics",
+        "insight": "Juice WRLD, XXXTentacion. 감정적 힙합. K-pop 감성 힙합에 새로운 방향. TXT 등 이미 영향 받는 중."
+      },
+      "Horrorcore": {
+        "tier": 4,
+        "clap_text": "horror-themed hip hop, dark cinematic production, graphic violent imagery, eerie synths and samples, shock value aesthetic",
+        "insight": "공포 테마 힙합. K-pop 다크/할로윈 컨셉에 사운드 요소 차용 시 차별화 가능. Memphis Rap과 연결."
+      },
+      "Industrial Hip Hop": {
+        "tier": 4,
+        "clap_text": "noisy abrasive hip hop with industrial music elements, distorted beats, harsh textures, experimental aggressive energy",
+        "insight": "Death Grips, JPEGMAFIA. 노이즈+힙합 극한. K-pop 실험적 하드코어 트랙의 미개척 영역."
+      },
+      "Country Rap": {
+        "tier": 4,
+        "clap_text": "hip hop fused with country music elements, acoustic guitar and banjo over 808 bass, southern twang with rap delivery",
+        "insight": "Lil Nas X 'Old Town Road'. 장르 파괴의 아이콘. Country Pop 트렌드와 결합 시 K-pop 새 컨셉 가능."
+      },
+      "Glitch Hop": {
+        "tier": 4,
+        "clap_text": "hip hop fused with glitch music, irregular chaotic breakbeats, glitchy basslines, experimental electronic textures, Flying Lotus style",
+        "insight": "Flying Lotus, Prefuse 73. 실험적 비트메이킹. K-pop 프로듀서의 사운드 디자인 영감."
+      }
+    }
+  },
+  "R&B": {
+    "_description": "리듬 앤 블루스. K-pop 보컬 스타일과 멜로디의 핵심 소스.",
+    "genres": {
+      "Contemporary R&B": {
+        "tier": 1,
+        "clap_text": "modern R&B with smooth vocals, polished production, blend of pop and soul elements, radio-friendly groove",
+        "insight": "K-pop R&B의 기본 레퍼런스."
+      },
+      "Alternative R&B": {
+        "tier": 1,
+        "clap_text": "experimental moody R&B, unconventional production, electronic elements, atmospheric and dark",
+        "insight": "The Weeknd 초기, Frank Ocean. K-R&B의 주요 영감."
+      },
+      "Trap Soul": {
+        "tier": 1,
+        "clap_text": "smooth R&B vocals over trap production, 808 bass, soft synth pads, slow tempo, emotional hip-hop drum patterns",
+        "insight": "Bryson Tiller가 정의한 장르. DEAN, Crush 한국 버전."
+      },
+      "Neo Soul": {
+        "tier": 2,
+        "clap_text": "organic jazzy R&B, live instrumentation, warm analog tones, socially conscious, sophisticated harmony",
+        "insight": "Erykah Badu, D'Angelo. K-인디 R&B에 큰 영향."
+      },
+      "New Jack Swing": {
+        "tier": 2,
+        "clap_text": "R&B with hip hop beats and dance pop energy, Teddy Riley sound, syncopated rhythm, 90s bounce aesthetic",
+        "insight": "Teddy Riley 창시. 1세대 K-pop의 직접적 뿌리 (서태지, H.O.T)."
+      },
+      "Quiet Storm": {
+        "tier": 2,
+        "clap_text": "smooth romantic R&B, slow tempo, lush arrangements, intimate vocal performance, late-night mood",
+        "insight": "클래식 슬로우잼. 발라드 R&B의 원형."
+      },
+      "Funk R&B": {
+        "tier": 2,
+        "clap_text": "funky bass-driven R&B, groovy syncopated rhythm, slap bass, danceable and energetic",
+        "insight": "Bruno Mars/Silk Sonic 리바이벌로 재주목."
+      },
+      "PBR&B": {
+        "tier": 2,
+        "clap_text": "hipster R&B with lo-fi textures, atmospheric production, whispered intimate vocals, blog-era aesthetic",
+        "insight": "2010년대 초 블로그 시대 R&B. How To Dress Well 계열."
+      },
+      "Classic R&B": {
+        "tier": 2,
+        "clap_text": "traditional rhythm and blues with soulful vocals, gospel influence, piano or organ foundation, emotional delivery",
+        "insight": "모타운~90년대. R&B의 근본."
+      }
+    }
+  },
+  "Electronic / Dance": {
+    "_description": "전자 음악 전반. K-pop 프로덕션의 사운드 디자인 소스.",
+    "genres": {
+      "House": {
+        "tier": 1,
+        "clap_text": "four-on-the-floor kick, offbeat hi-hat, synth stabs, vocal samples, 120-130 BPM danceable groove",
+        "insight": "클럽 뮤직의 기본. K-pop 댄스곡의 저변."
+      },
+      "Deep House": {
+        "tier": 2,
+        "clap_text": "warm mellow house, deep basslines, jazzy chords, atmospheric pads, 120-125 BPM soulful groove",
+        "insight": "부드러운 클럽 사운드."
+      },
+      "Tech House": {
+        "tier": 2,
+        "clap_text": "minimal repetitive house with techno influence, driving bassline, percussive hypnotic groove",
+        "insight": "2024 가장 큰 클럽 장르 중 하나."
+      },
+      "Future House": {
+        "tier": 1,
+        "clap_text": "modern house with metallic bass sounds, bright synth leads, bouncy groove, festival energy",
+        "insight": "EDM 페스티벌 사운드. K-pop 드롭에 자주 차용."
+      },
+      "Progressive House": {
+        "tier": 2,
+        "clap_text": "evolving building house music, long transitions, emotional breakdown and melodic drop, layered synths",
+        "insight": "빌드업→드롭 구조의 원조."
+      },
+      "Afro House": {
+        "tier": 2,
+        "clap_text": "house music with African percussion, tribal rhythms, organic textures, spiritual vocal chants, deep groove",
+        "insight": "2024-2025 남아공에서 아마피아노를 추월. 글로벌 클럽 핵심."
+      },
+      "Techno": {
+        "tier": 2,
+        "clap_text": "repetitive electronic music, driving four-on-the-floor beat, industrial textures, 130-150 BPM dark hypnotic",
+        "insight": "베를린 클럽 문화의 중심."
+      },
+      "Future Bass": {
+        "tier": 1,
+        "clap_text": "melodic electronic with heavy synth chords, emotional drops, chopped vocal samples, bright colorful sound",
+        "insight": "K-pop EDM 드롭의 주요 소스. 2016-2019 전성기."
+      },
+      "Dubstep": {
+        "tier": 2,
+        "clap_text": "heavy bass drops, wobble bass, half-time drum patterns, aggressive synth design, 140 BPM intense",
+        "insight": "K-pop 브릿지/드롭에 차용."
+      },
+      "EDM / Big Room": {
+        "tier": 1,
+        "clap_text": "festival electronic music, massive build-ups and drops, simple anthemic melodies, supersaws, crowd energy",
+        "insight": "2012-2016 전성기. K-pop 코러스 드롭의 직접적 영향."
+      },
+      "Jersey Club": {
+        "tier": 2,
+        "clap_text": "fast club music with bed-squeak samples, rapid stuttering kick patterns, 130-140 BPM, vocal chops, bouncy energy",
+        "insight": "2024 베를린에서 452% 성장. 전 세계적으로 급부상 중."
+      },
+      "UK Garage": {
+        "tier": 1,
+        "clap_text": "syncopated 2-step shuffled rhythm, deep bass, chopped vocal samples, 130 BPM sophisticated groove",
+        "insight": "2-step 리듬. NewJeans 프로듀서 250이 UKG 영향 받음."
+      },
+      "Bassline": {
+        "tier": 2,
+        "clap_text": "UK garage variant with heavier bass emphasis, wobbly basslines, energetic, speed garage influenced",
+        "insight": "UK 클럽 문화. UKG의 베이스 중심 파생."
+      },
+      "Drum and Bass": {
+        "tier": 2,
+        "clap_text": "fast breakbeat patterns, heavy rolling bass, 170-180 BPM, complex drum programming, atmospheric pads",
+        "insight": "2025 성장 중. 빠른 에너지의 일렉트로닉."
+      },
+      "Hardstyle": {
+        "tier": 2,
+        "clap_text": "distorted kick drums, reverse bass, euphoric melodies, 150 BPM, intense rave energy",
+        "insight": "유럽 레이브 문화. K-pop 하드코어 컨셉에 차용 가능."
+      },
+      "Trance": {
+        "tier": 2,
+        "clap_text": "uplifting emotional electronic music, arpeggiated synths, build and release structure, 138-145 BPM euphoric",
+        "insight": "클래식 트랜스는 약세지만 Gen Z Trance로 변형 부활 중."
+      },
+      "Gen Z Trance": {
+        "tier": 2,
+        "clap_text": "modern trance revival with nostalgic rave elements, euphoric synths, fast tempo, youthful energy, TikTok aesthetic",
+        "insight": "2025 이머징. 90년대 레이브 감성의 Z세대 리바이벌."
+      },
+      "Digicore": {
+        "tier": 2,
+        "clap_text": "internet-born glitchy electronic, distorted vocals, chaotic layered production, emo rap meets hyperpop, digital aesthetic",
+        "insight": "2025 Soundtrap EDM 124% 성장의 핵심 동력. 온라인 네이티브 장르."
+      },
+      "Synthwave": {
+        "tier": 2,
+        "clap_text": "retro 80s electronic, analog synths, arpeggiated bass, neon cinematic aesthetic, nostalgic atmosphere",
+        "insight": "레트로 무드. Stranger Things 영향으로 재유행."
+      },
+      "Lo-fi Electronic": {
+        "tier": 2,
+        "clap_text": "warm nostalgic electronic, vinyl crackle, tape hiss, mellow beats, relaxed cozy atmosphere",
+        "insight": "lo-fi hip hop/beats 스터디 뮤직. 스트리밍 플레이리스트 핵심."
+      },
+      "Amapiano": {
+        "tier": 2,
+        "clap_text": "South African deep house with log drum bass, jazzy piano chords, percussive shakers, 110-120 BPM laid-back groove",
+        "insight": "2023-2025 글로벌 최대 이머징 장르. TikTok 댄스 챌린지 핵심."
+      },
+      "Gqom": {
+        "tier": 3,
+        "clap_text": "South African raw electronic, heavy bass, minimal dark atmosphere, repetitive percussive patterns, Durban originated",
+        "insight": "아마피아노의 형. 더 어둡고 하드코어. K-pop 차용 가능성 낮음."
+      },
+      "Rave": {
+        "tier": 2,
+        "clap_text": "high energy electronic dance music, 90s rave inspired, euphoric synths, breakbeats, communal ecstatic energy",
+        "insight": "2025 레이브 리바이벌. Gen Z가 90년대 클럽 문화를 재해석."
+      },
+      "Sigilkore": {
+        "tier": 2,
+        "clap_text": "aggressive digital electronic, distorted bass, screaming vocals, internet horror aesthetic, extreme chaotic energy",
+        "insight": "2024-2025 초이머징. 극단적 디지털 사운드. K-pop 실험적 트랙에 요소 차용 가능."
+      },
+      "French Touch": {
+        "tier": 2,
+        "clap_text": "French electronic house with filtered disco samples, four-on-the-floor, warm analog synths, Daft Punk aesthetic",
+        "insight": "Daft Punk, Justice 계보. 필터드 하우스의 원조."
+      },
+      "Breakbeat": {
+        "tier": 2,
+        "clap_text": "syncopated broken drum patterns, chopped funk breaks, sampled loops, energetic non-four-on-the-floor rhythm, amen break",
+        "insight": "정글/DnB/빅비트의 뿌리. K-pop에서 브레이크 패턴 자주 차용. 드럼 프로그래밍의 핵심 소스."
+      },
+      "Breakcore": {
+        "tier": 2,
+        "clap_text": "extreme fast chopped breakbeats, chaotic tempo changes, distorted samples, glitchy aggressive energy, 160-300 BPM",
+        "insight": "극단적 브레이크비트. K-pop 실험적 트랙에서 잘게 쪼갠 브레이크 요소 차용."
+      },
+      "Miami Bass": {
+        "tier": 1,
+        "clap_text": "heavy 808 kick and sub bass, fast tempo, call-and-response chants, booty-shaking groove, Roland TR-808 driven party music",
+        "insight": "808 베이스 문화의 원조. K-pop이 직접 가져다 타이틀곡을 만드는 장르. 트랩 이전의 베이스 뮤직."
+      },
+      "Baltimore Club": {
+        "tier": 2,
+        "clap_text": "fast repetitive breakbeat patterns, house music tempo, call-and-response samples, 130 BPM bouncy percussive energy",
+        "insight": "저지클럽의 형. 반복적 브레이크+하우스 퓨전. K-pop 클럽 트랙에 요소 차용 가능."
+      },
+      "Electro": {
+        "tier": 1,
+        "clap_text": "Roland TR-808 drum machine driven electronic funk, robotic textures, vocoder vocals, synth bass, Afrika Bambaataa Planet Rock aesthetic",
+        "insight": "808 일렉트로닉의 원조. aespa Supernova가 Planet Rock 직접 샘플링. K-pop이 가져다 쓰는 핵심 레트로 장르."
+      },
+      "Electroclash": {
+        "tier": 2,
+        "clap_text": "late 90s electro revival fused with new wave and punk attitude, trashy synths, ironic vocals, lo-fi dance energy",
+        "insight": "NewJeans 'How Sweet'에서 활용. 2000년대 초 미학. K-pop 레트로 트랙에 차용 가능."
+      },
+      "Freestyle": {
+        "tier": 2,
+        "clap_text": "Latin-influenced electro dance pop, synth-heavy with emotional vocals, 80s drum machine, romantic melody over electronic beats",
+        "insight": "Electro에서 파생된 라틴+일렉트로 퓨전. Infinite 'The Chaser'가 차용. 리바이벌 잠재력 높은 레트로 장르."
+      },
+      "Eurodance": {
+        "tier": 2,
+        "clap_text": "high energy European dance pop, four-on-the-floor beat, catchy synth hooks, rap verses with sung choruses, 90s rave pop aesthetic",
+        "insight": "90년대 K-pop 1세대의 직접적 뿌리 (터보, 클론, DJ DOC). 리바이벌 시 K-pop과 궁합 완벽."
+      },
+      "Go-Go": {
+        "tier": 2,
+        "clap_text": "Washington DC funk with heavy percussion, conga and cowbell groove, call-and-response, live band energy, syncopated rhythm",
+        "insight": "DC 기원 퍼커션 중심 펑크. Baltimore Club에 영향. 리듬 요소 차용 가능."
+      },
+      "Bounce": {
+        "tier": 2,
+        "clap_text": "New Orleans bass music, call-and-response chants, Triggerman beat pattern, fast tempo, high energy party music",
+        "insight": "뉴올리언스 베이스 뮤직. 콜앤리스폰스+808 에너지. 파티 트랙 요소."
+      },
+      "Ghettotech": {
+        "tier": 2,
+        "clap_text": "Detroit club music fusing ghetto house, electro, techno and Miami bass, 145-160 BPM, raw gritty four-on-the-floor, fast-paced mixing",
+        "insight": "디트로이트 클럽. 테크노+힙합+마이애미베이스의 교차점. 하이템포 클럽 사운드."
+      },
+      "Footwork": {
+        "tier": 2,
+        "clap_text": "Chicago ultrafast dance music, 160 BPM, syncopated juke patterns, chopped vocal samples, minimal but complex rhythm",
+        "insight": "시카고 기원 초고속 댄스. 저지클럽과 연결. DJ Rashad 계보. 리듬 프로그래밍의 극한."
+      }
+    }
+  },
+  "Rock": {
+    "_description": "록 음악 전반. K-pop에서 밴드 사운드나 에너지 차용에 활용.",
+    "genres": {
+      "Pop Rock": {
+        "tier": 1,
+        "clap_text": "rock music with pop sensibility, catchy melodies, guitar-driven but radio-friendly hooks",
+        "insight": "DAY6, FTISLAND 스타일의 K-pop 록."
+      },
+      "Indie Rock": {
+        "tier": 2,
+        "clap_text": "guitar-based rock with DIY aesthetic, alternative structures, lo-fi to polished production range",
+        "insight": "K-인디 밴드 씬."
+      },
+      "Alternative Rock": {
+        "tier": 2,
+        "clap_text": "non-mainstream rock, diverse influences, experimental tendencies, dynamic shifts between soft and heavy",
+        "insight": "폭넓은 록의 대안적 접근."
+      },
+      "Punk Rock": {
+        "tier": 2,
+        "clap_text": "fast aggressive rock, simple chord progressions, raw energy, short songs, rebellious attitude",
+        "insight": "에너지 차용. K-pop 펑크 컨셉."
+      },
+      "Post-Punk": {
+        "tier": 2,
+        "clap_text": "angular guitars, dark cold atmosphere, new wave influence, driving bass, detached vocal style",
+        "insight": "2024-2025 리바이벌 트렌드. 팬데믹 이후 재부상."
+      },
+      "Emo": {
+        "tier": 2,
+        "clap_text": "emotional rock with confessional lyrics, dynamic soft-to-loud shifts, melodic guitar, vulnerable vocals",
+        "insight": "K-pop에서도 이모 감성 차용. TXT 일부 트랙."
+      },
+      "Shoegaze": {
+        "tier": 2,
+        "clap_text": "wall of guitar noise, heavy reverb and distortion, ethereal vocals buried in mix, dreamy and noisy",
+        "insight": "2024 리바이벌. My Bloody Valentine/Slowdive 재발견."
+      },
+      "Math Rock": {
+        "tier": 2,
+        "clap_text": "complex time signatures, intricate technical guitar work, angular rhythms, unconventional structure",
+        "insight": "일본/한국 인디 씬에서 인기."
+      },
+      "Metal": {
+        "tier": 2,
+        "clap_text": "heavy distorted guitars, powerful drums, aggressive vocals, high energy, dark intense atmosphere",
+        "insight": "K-pop에서 메탈 기타 리프 차용 증가. Stray Kids."
+      },
+      "Nu Metal": {
+        "tier": 2,
+        "clap_text": "metal with hip hop and electronic elements, downtuned guitars, turntable scratching, aggressive rap-sing vocals",
+        "insight": "2000년대 리바이벌 조짐. 힙합+록 크로스오버."
+      }
+    }
+  },
+  "Ballad": {
+    "_description": "발라드. K-pop 시장에서 여전히 가장 큰 소비 장르 중 하나.",
+    "genres": {
+      "Pop Ballad": {
+        "tier": 1,
+        "clap_text": "slow emotional pop, piano or acoustic guitar foundation, powerful vocal performance, building orchestral arrangement",
+        "insight": "K-pop 발라드의 기본 구조."
+      },
+      "R&B Ballad": {
+        "tier": 1,
+        "clap_text": "slow R&B with soulful harmonized vocals, lush warm production, romantic lyrics, smooth groove",
+        "insight": "어반 발라드. 크러쉬, 딘 스타일."
+      },
+      "Rock Ballad": {
+        "tier": 2,
+        "clap_text": "slow rock with emotional guitar solo, power chords building to dramatic climax, arena-worthy chorus",
+        "insight": "밴드 발라드."
+      },
+      "K-Ballad": {
+        "tier": 1,
+        "clap_text": "Korean dramatic ballad, orchestral strings and piano, powerful belting vocals, emotional crescendo, cinematic arrangement",
+        "insight": "한국 특유의 발라드 스타일. 성시경, 아이유 계열. OST 시장 핵심."
+      }
+    }
+  },
+  "Latin": {
+    "_description": "라틴 음악. 글로벌 팝 시장에서 비중 급증. K-pop도 라틴 리듬 차용 증가.",
+    "genres": {
+      "Reggaeton": {
+        "tier": 1,
+        "clap_text": "dembow rhythm pattern, 808 bass, danceable groove, Spanish vocals, urban bouncy production",
+        "insight": "라틴 음악의 왕. Bad Bunny. 글로벌 시장 점유율 ~8%. K-pop도 dembow 리듬 차용."
+      },
+      "Latin Pop": {
+        "tier": 2,
+        "clap_text": "pop music with Latin rhythms, acoustic guitar, tropical elements, bilingual catchy melodies",
+        "insight": "라틴 팝 크로스오버."
+      },
+      "Latin Trap": {
+        "tier": 2,
+        "clap_text": "trap music with Latin influence, Spanish lyrics, reggaeton-trap hybrid rhythm, heavy 808",
+        "insight": "U-25 리스너 핵심. 트랩+레게톤 퓨전."
+      },
+      "Moombahton": {
+        "tier": 2,
+        "clap_text": "Dutch house meets reggaeton, midtempo danceable groove, 108 BPM, tropical bass, bouncy kick pattern",
+        "insight": "하우스+레게톤 퓨전. Major Lazer가 대중화."
+      },
+      "Dembow": {
+        "tier": 2,
+        "clap_text": "Dominican urban music, fast dembow rhythm, aggressive bass, high energy, dancehall influenced production",
+        "insight": "카리브해 클럽 뮤직. 레게톤보다 빠르고 공격적."
+      },
+      "Bachata": {
+        "tier": 3,
+        "clap_text": "romantic Latin music with bongos, acoustic guitar, and bass, syncopated rhythm, emotional intimate delivery",
+        "insight": "로맨틱 라틴. K-pop 차용 가능성 낮음."
+      },
+      "Cumbia": {
+        "tier": 3,
+        "clap_text": "Colombian folk dance music, accordion, guiro rhythm, festive groove, call-and-response, accessible dance beat",
+        "insight": "라틴아메리카 전역의 민속 댄스 뮤직."
+      },
+      "Salsa": {
+        "tier": 3,
+        "clap_text": "Afro-Cuban dance music, brass section, clave rhythm, piano montuno, energetic percussion, celebratory feel",
+        "insight": "라틴 클래식. K-pop 직접 차용은 드물지만 리듬 요소는 활용 가능."
+      },
+      "Corridos Tumbados": {
+        "tier": 3,
+        "clap_text": "modern Mexican corridos with trap influence, acoustic guitar over 808 bass, storytelling, regional Mexican meets urban",
+        "insight": "2024 라틴 시장 최대 성장 장르. 멕시코 로컬."
+      },
+      "Baile Funk": {
+        "tier": 2,
+        "clap_text": "Brazilian favela dance music, heavy bass, fast percussion, call-and-response chants, raw energetic production",
+        "insight": "브라질 클럽 문화의 심장. 글로벌 확산 중. 리듬 요소 차용 가능."
+      },
+      "Rave Funk": {
+        "tier": 2,
+        "clap_text": "baile funk merged with electronic festival sounds, heavy bass drops, rave energy, Brazilian percussion",
+        "insight": "바일리 펑크의 EDM 변형. 2024-2025 이머징."
+      },
+      "Brazilian Phonk": {
+        "tier": 2,
+        "clap_text": "Brazilian funk fused with drift phonk cowbell and lo-fi aesthetic, bass-heavy, dark aggressive groove",
+        "insight": "São Paulo 중심. 스칸디나비아/동유럽까지 확산."
+      },
+      "Funk Bruxaria": {
+        "tier": 4,
+        "clap_text": "baile funk with horror aesthetics, shrieking synths, metal influences, apocalyptic dark tone, Brazilian favela meets horror",
+        "insight": "바일리 펑크의 호러 변형. K-pop 다크 컨셉과 브라질 베이스의 만남. 미개척 퓨전 가능성."
+      },
+      "LatinCore": {
+        "tier": 4,
+        "clap_text": "chaotic high-energy Latin American beats, uwuracha and hyperwaracha, post-baile-funk, sonic rollercoaster, extreme rhythmic energy",
+        "insight": "콜롬비아/멕시코 발 카오틱 비트. 장르 경계를 완전히 무시하는 실험적 라틴. K-pop 하이에너지 트랙의 새 소스."
+      }
+    }
+  },
+  "Caribbean": {
+    "_description": "카리브해 음악. 댄스홀, 레게 등. 팝 시장에 지속적 영향.",
+    "genres": {
+      "Reggae": {
+        "tier": 2,
+        "clap_text": "Jamaican music with offbeat guitar skank, deep bass, one-drop drum pattern, laid-back groove, positive message",
+        "insight": "밥 말리 유산. 레게 리듬은 팝에 꾸준히 차용."
+      },
+      "Dancehall": {
+        "tier": 2,
+        "clap_text": "Jamaican dance music, digital riddim, fast tempo, energetic vocals, bass-heavy, party atmosphere",
+        "insight": "Sean Paul, Rihanna. K-pop 파티 트랙에 차용."
+      },
+      "Bouyon": {
+        "tier": 3,
+        "clap_text": "Caribbean fusion of African beats, EDM, compa, and house, hyper-energetic carnival rhythm, Dominica originated",
+        "insight": "2025 이머징. TikTok 바이럴. 카니발 에너지."
+      }
+    }
+  },
+  "African": {
+    "_description": "아프리카 음악. 글로벌 팝 시장의 새로운 핵심 축.",
+    "genres": {
+      "Afrobeats": {
+        "tier": 2,
+        "clap_text": "West African dance music, percussion-heavy, guitar licks, call-and-response vocals, infectious groovy rhythm",
+        "insight": "Burna Boy, Wizkid. 글로벌 메인스트림 진입 완료. K-pop 리듬 요소 차용 가능."
+      },
+      "Afropop": {
+        "tier": 2,
+        "clap_text": "African influenced pop music, bright melodies, danceable rhythm, fusion of African and Western pop elements",
+        "insight": "아프로비츠의 팝 크로스오버 버전."
+      },
+      "Afro Swing": {
+        "tier": 2,
+        "clap_text": "UK-African fusion, dancehall and afrobeats blend, British urban vocals, bouncy infectious rhythm",
+        "insight": "런던 씬. J Hus, NSG."
+      }
+    }
+  },
+  "Soul / Funk": {
+    "_description": "소울과 펑크. R&B의 뿌리이자 K-pop 그루브의 원천.",
+    "genres": {
+      "Soul": {
+        "tier": 2,
+        "clap_text": "emotional vocal-driven music with gospel roots, warm instrumentation, horn sections, heartfelt delivery",
+        "insight": "R&B의 근본. 보컬 표현의 원형."
+      },
+      "Funk": {
+        "tier": 1,
+        "clap_text": "groove-driven music with syncopated slap bass, rhythmic guitar, horn stabs, emphasis on the one beat",
+        "insight": "그루브의 왕. K-pop 레트로 트랙의 핵심 소스. Bruno Mars/Silk Sonic 리바이벌."
+      },
+      "Disco": {
+        "tier": 1,
+        "clap_text": "four-on-the-floor dance music, orchestral strings, funky bass, 110-130 BPM celebratory energy",
+        "insight": "Dua Lipa 이후 디스코 리바이벌. K-pop 레트로 붐."
+      },
+      "Modern Funk": {
+        "tier": 2,
+        "clap_text": "contemporary funk with synthesizer, talk-box, boogie influence, retro-futuristic polished groove",
+        "insight": "Anderson .Paak, Silk Sonic. 모던 레트로."
+      }
+    }
+  },
+  "Jazz": {
+    "_description": "재즈. K-pop에서 재즈 화성과 악기 차용 증가 추세.",
+    "genres": {
+      "Jazz": {
+        "tier": 2,
+        "clap_text": "improvisation-based music, complex harmony, swing rhythm, brass and woodwind, sophisticated chord changes",
+        "insight": "화성의 교과서."
+      },
+      "Jazz Fusion": {
+        "tier": 2,
+        "clap_text": "jazz combined with rock, funk, or electronic elements, electric instruments, complex rhythms, adventurous",
+        "insight": "장르 크로스오버의 원조."
+      },
+      "Jazz Hop": {
+        "tier": 2,
+        "clap_text": "hip hop beats with jazz samples, laid-back groove, sophisticated harmony, Nujabes atmospheric style",
+        "insight": "Nujabes 유산. lo-fi hip hop의 뿌리."
+      },
+      "Neo-Jazz": {
+        "tier": 2,
+        "clap_text": "modern jazz fusing hip-hop, funk, electronic, and soul, unpredictable improvisation, young energy",
+        "insight": "2025 트렌드. 재즈의 Z세대 재해석. Tom Misch, Jacob Collier."
+      }
+    }
+  },
+  "Country / Folk": {
+    "_description": "컨트리와 포크. Beyonce 이후 팝 시장에서 급부상.",
+    "genres": {
+      "Americana": {
+        "tier": 3,
+        "clap_text": "roots-influenced American music, acoustic instruments, folk and country blend, authentic storytelling, organic sound",
+        "insight": "인디 감성의 미국 뿌리 음악. K-pop 직접 차용 드묾."
+      },
+      "Folk Pop": {
+        "tier": 2,
+        "clap_text": "folk music with pop accessibility, acoustic guitar and vocals, gentle melody, storytelling lyrics, warm intimate feel",
+        "insight": "Bon Iver, Fleet Foxes 계열. K-pop 감성 트랙에 어쿠스틱 요소로 활용."
+      }
+    }
+  },
+  "Brazilian": {
+    "_description": "브라질 음악. 보사노바부터 바일리 펑크까지.",
+    "genres": {
+      "Bossa Nova": {
+        "tier": 2,
+        "clap_text": "Brazilian jazz-samba fusion, gentle nylon guitar, soft vocals, sophisticated harmony, relaxed intimate atmosphere",
+        "insight": "음악의 기본 교양. K-pop 감성 트랙에 보사 리듬 차용 가능."
+      },
+      "MPB": {
+        "tier": 3,
+        "clap_text": "Brazilian popular music blending bossa nova, rock, folk, and African rhythms, artistic and diverse",
+        "insight": "Música Popular Brasileira. 브라질 대중음악 전체."
+      },
+      "Sertanejo": {
+        "tier": 3,
+        "clap_text": "Brazilian country music, acoustic guitar duets, romantic lyrics, modern pop production influence",
+        "insight": "브라질 최대 대중 장르. K-pop과 접점 없음."
+      }
+    }
+  },
+  "Japanese": {
+    "_description": "일본 음악. 세계 2위 시장이자 K-pop 주요 진출 시장. J-Pop 스타일 이해 필수.",
+    "genres": {
+      "J-Pop": {
+        "tier": 2,
+        "clap_text": "Japanese pop music with hook-heavy songwriting, polished production, blend of rock guitars and electronic elements, anime tie-in aesthetic",
+        "insight": "일본 시장 진출 시 필수 이해. K-pop 그룹 일본 버전 트랙의 레퍼런스. Mrs. GREEN APPLE, YOASOBI 등이 현재 차트 장악."
+      },
+      "J-Rock": {
+        "tier": 2,
+        "clap_text": "Japanese rock with melodic vocals, dynamic arrangements, emotional intensity, often tied to anime soundtracks",
+        "insight": "ONE OK ROCK, King Gnu 계열. 밴드형 K-pop(DAY6)과 교집합. 일본 록 페스 진출 시 레퍼런스."
+      },
+      "City Pop": {
+        "tier": 2,
+        "clap_text": "Japanese-influenced retro pop with funk and jazz elements, smooth production, nostalgic 80s aesthetic, warm bass",
+        "insight": "일본 시티팝 리바이벌. K-pop 레트로 컨셉에 직접 차용."
+      },
+      "Anisong": {
+        "tier": 2,
+        "clap_text": "anime opening and ending theme songs, high energy melodic pop-rock, dramatic builds, emotional hooks, often fast tempo",
+        "insight": "애니 OST. K-pop 아티스트 일본 애니 타이업 증가 중. Demon Slayer, Jujutsu Kaisen 급 타이업은 글로벌 임팩트."
+      },
+      "Visual Kei": {
+        "tier": 3,
+        "clap_text": "Japanese visual rock with dramatic theatrical presentation, androgynous aesthetics, diverse sound from metal to electronic",
+        "insight": "비주얼 중심 록. K-pop 다크/고딕 컨셉과 미학적 교집합은 있지만 사운드 직접 차용은 드묾."
+      },
+      "Shibuya-kei": {
+        "tier": 3,
+        "clap_text": "Japanese indie pop blending French pop, bossa nova, lounge, and sample-based production, sophisticated retro aesthetic",
+        "insight": "90년대 도쿄 인디. Pizzicato Five. 매니아 장르."
+      },
+      "Enka": {
+        "tier": 3,
+        "clap_text": "traditional Japanese ballad with melismatic vocal technique, pentatonic melody, orchestral arrangement, deep emotional expression",
+        "insight": "일본 전통 연가. K-pop과 사운드 거리 멀지만 일본 시장 이해 차원에서 분류 필요."
+      },
+      "Vocaloid": {
+        "tier": 3,
+        "clap_text": "synthesized vocal music using Vocaloid software, fast tempo, complex melodies, otaku culture aesthetic, Hatsune Miku style",
+        "insight": "보컬로이드/VTuber 음악. 독자적 생태계. 일본 디지털 음악 문화의 독특한 축."
+      }
+    }
+  },
+  "Indian / South Asian": {
+    "_description": "인도/남아시아 음악. 프리미엄 스트리밍 42% 성장. K-pop 직접 차용은 드물지만 글로벌 시장 규모 무시 불가.",
+    "genres": {
+      "Bollywood Pop": {
+        "tier": 3,
+        "clap_text": "Indian film pop with dramatic vocals, orchestral and electronic blend, Hindi lyrics, tabla and synth fusion, emotional melodrama",
+        "insight": "인도 최대 음악 소비 장르. K-pop과 프로덕션 방향성이 달라 이 분류 시 트렌드 부적합 신호."
+      },
+      "Bhangra": {
+        "tier": 3,
+        "clap_text": "Punjabi dance music with dhol drum, tumbi, high energy celebratory groove, call-and-response, wedding party atmosphere",
+        "insight": "펀자비 전통 댄스. 리듬 요소는 EDM과 퓨전되어 글로벌 확산 중."
+      },
+      "Punjabi Pop": {
+        "tier": 3,
+        "clap_text": "modern Punjabi music blending hip-hop, EDM, and traditional bhangra, dhol rhythms with trap bass, energetic party sound",
+        "insight": "인도 수출 음악의 57%가 펀자비. AP Dhillon, Diljit Dosanjh 등. K-pop과 시장이 다르지만 글로벌 영향력 성장 중."
+      },
+      "Indian Classical Fusion": {
+        "tier": 3,
+        "clap_text": "Indian classical ragas and instruments fused with electronic or western elements, sitar and tabla over modern production",
+        "insight": "A.R. Rahman 계열. 프로덕션 요소로서의 인도 악기는 간혹 팝에 등장."
+      }
+    }
+  },
+  "Chinese": {
+    "_description": "중국 음악. 세계 5위 시장. K-pop 중국 진출 관련 이해 필요.",
+    "genres": {
+      "C-Pop / Mandopop": {
+        "tier": 3,
+        "clap_text": "Mandarin Chinese pop music with ballad emphasis, polished vocal performance, sentimental melody, modern production",
+        "insight": "Jay Chou 이후 중화권 팝의 표준. 발라드 중심. K-pop 중국 진출 시 시장 특성 이해용."
+      },
+      "Cantopop": {
+        "tier": 3,
+        "clap_text": "Cantonese pop from Hong Kong, melodic ballads, glossy production, romantic themes, 80s-90s golden era influence",
+        "insight": "홍콩 팝. 전성기는 지났지만 광동어권 시장의 기반."
+      }
+    }
+  },
+  "MENA / Arabic": {
+    "_description": "중동/북아프리카 음악. 세계 최고 성장률(22.8%). K-pop 직접 차용 드물지만 글로벌 트렌드 모니터링 필요.",
+    "genres": {
+      "Arabic Pop": {
+        "tier": 3,
+        "clap_text": "Middle Eastern pop with Arabic melodic scales, orchestral strings, dabke and khaleeji rhythms, romantic vocal delivery",
+        "insight": "Amr Diab, Nancy Ajram. 아랍어는 2024 Spotify 최고 성장 언어. K-pop과 프로덕션 접점 적지만 시장 규모 성장 주목."
+      },
+      "Khaleeji": {
+        "tier": 3,
+        "clap_text": "Gulf Arabian traditional pop with oud, hand drums, distinctive vocal ornamentation, festive wedding atmosphere",
+        "insight": "걸프 지역 전통 팝. GCC가 MENA 유료 구독의 2/3 차지."
+      },
+      "Mahraganat": {
+        "tier": 3,
+        "clap_text": "Egyptian street electronic music, heavy auto-tuned vocals, darbuka percussion, sawtooth synth leads mimicking mizmar, raw bass-heavy DIY production",
+        "insight": "이집트 스트릿 장르. 카이로 하층 문화에서 메인스트림으로. electro-shaabi라고도 불림. 글로벌 확산 중이지만 K-pop과 거리 있음."
+      },
+      "Rai": {
+        "tier": 3,
+        "clap_text": "Algerian folk-pop with Arabic and Berber vocal style, accordion, synthesizer, rebellious lyrical themes",
+        "insight": "알제리 민중음악. Khaled 'Aicha'. 북아프리카 로컬."
+      },
+      "Dabke": {
+        "tier": 3,
+        "clap_text": "Levantine folk dance music with driving drum rhythm, mijwiz and oud, energetic line dance groove, celebratory atmosphere",
+        "insight": "레반트 지역 전통 댄스. 퍼커션 요소는 글로벌 EDM에 가끔 차용."
+      }
+    }
+  },
+  "European Local": {
+    "_description": "유럽 로컬 장르. 독일/프랑스 등 주요 시장의 로컬 사운드.",
+    "genres": {
+      "Schlager": {
+        "tier": 3,
+        "clap_text": "German and Central European popular music, catchy simple melodies, upbeat tempo, sentimental lyrics, polka influence",
+        "insight": "독일 최대 대중 장르. K-pop과 접점 없음. 분류 정확도를 위해 존재."
+      },
+      "German Rap": {
+        "tier": 3,
+        "clap_text": "German language hip hop, trap and drill influenced production, aggressive delivery, Berlin and Frankfurt scene",
+        "insight": "독일 젊은 층 핵심 장르. 사운드는 글로벌 힙합과 유사하지만 로컬 시장."
+      },
+      "French Rap": {
+        "tier": 3,
+        "clap_text": "French language hip hop, diverse production from boom bap to trap, North African and Caribbean cultural influences",
+        "insight": "프랑스 최대 장르. 이민자 문화 중심. 글로벌 힙합 트렌드와 교류."
+      },
+      "Zouk": {
+        "tier": 3,
+        "clap_text": "French Caribbean dance music, slow sensual rhythm, synthesizer, Antillean Creole vocals, romantic groove",
+        "insight": "과들루프/마르티니크 기원. 라틴+프렌치 카리브해 퓨전."
+      }
+    }
+  },
+  "Ambient / Experimental": {
+    "_description": "앰비언트와 실험 음악. 사운드 디자인과 분위기 설정에 활용.",
+    "genres": {
+      "Ambient": {
+        "tier": 2,
+        "clap_text": "atmospheric textural music, no prominent beat, evolving soundscapes, meditative immersive experience",
+        "insight": "Brian Eno. 분위기 설정의 기본. K-pop 인트로/아웃트로에 활용."
+      },
+      "Downtempo": {
+        "tier": 2,
+        "clap_text": "slow electronic music, trip-hop influenced, relaxed beats, atmospheric textures, chilled mood",
+        "insight": "칠아웃 뮤직."
+      },
+      "Trip-Hop": {
+        "tier": 2,
+        "clap_text": "dark moody downtempo, breakbeat rhythms, cinematic atmosphere, bass-heavy, Bristol sound, Massive Attack style",
+        "insight": "Massive Attack, Portishead. 시네마틱 무드의 원조."
+      },
+      "IDM": {
+        "tier": 3,
+        "clap_text": "intelligent dance music, complex glitchy rhythms, experimental sound design, abstract structure, Aphex Twin style",
+        "insight": "실험적 전자음악. 매니아 장르."
+      },
+      "Experimental": {
+        "tier": 3,
+        "clap_text": "boundary-pushing music defying genre conventions, unconventional sounds, structures, and production techniques",
+        "insight": "장르 자체를 거부하는 장르."
+      }
+    }
+  }
+}

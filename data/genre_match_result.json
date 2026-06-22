@@ -1,0 +1,84 @@
+{
+  "top_genres": [
+    {
+      "genre": "austrian hip hop",
+      "similarity": 0.3834
+    },
+    {
+      "genre": "uk christian rap",
+      "similarity": 0.3665
+    },
+    {
+      "genre": "russian viral pop",
+      "similarity": 0.3574
+    },
+    {
+      "genre": "russian dance pop",
+      "similarity": 0.357
+    },
+    {
+      "genre": "belarusian hip hop",
+      "similarity": 0.3561
+    },
+    {
+      "genre": "myanmar hip hop",
+      "similarity": 0.354
+    },
+    {
+      "genre": "chinese viral pop",
+      "similarity": 0.3538
+    },
+    {
+      "genre": "miami hip hop",
+      "similarity": 0.3531
+    },
+    {
+      "genre": "asian american hip hop",
+      "similarity": 0.3526
+    },
+    {
+      "genre": "west australian hip hop",
+      "similarity": 0.3521
+    },
+    {
+      "genre": "australian hip hop",
+      "similarity": 0.3503
+    },
+    {
+      "genre": "baltimore indie",
+      "similarity": 0.3497
+    },
+    {
+      "genre": "malaysian hip hop",
+      "similarity": 0.3494
+    },
+    {
+      "genre": "alberta hip hop",
+      "similarity": 0.3469
+    },
+    {
+      "genre": "ghanaian hip hop",
+      "similarity": 0.3452
+    },
+    {
+      "genre": "russian old school hip hop",
+      "similarity": 0.3417
+    },
+    {
+      "genre": "ukrainian viral pop",
+      "similarity": 0.3404
+    },
+    {
+      "genre": "ukrainian hip hop",
+      "similarity": 0.3394
+    },
+    {
+      "genre": "libyan hip hop",
+      "similarity": 0.339
+    },
+    {
+      "genre": "colombian hip hop",
+      "similarity": 0.3364
+    }
+  ]
+}

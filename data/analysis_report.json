@@ -1,0 +1,23 @@
+{
+  "bpm": 103.0,
+  "drum_bpm": 152.0,
+  "key": "Ab major",
+  "key_confidence": 0.62,
+  "danceability": 1.018,
+  "drum_pattern": "Moderate (Pop/R&B)",
+  "drum_hits_per_sec": 3.5,
+  "stems": {
+    "vocals": {
+      "prominence": 25.4
+    },
+    "drums": {
+      "prominence": 20.8
+    },
+    "bass": {
+      "prominence": 35.8
+    },
+    "other": {
+      "prominence": 18.0
+    }
+  }
+}
