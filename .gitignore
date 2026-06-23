@@ -25,6 +25,8 @@ test_output/
 *.npy
 *.npz
 *.pkl
+*.pt
+*.pth
 
 # === 생성 산출물 JSON (스크립트가 재생성) ===
 scripts/*_meta.json

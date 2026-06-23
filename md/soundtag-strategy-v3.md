@@ -8,8 +8,9 @@
 >   Model B 풀트랙)**로 진화했다. 본문의 "6,043개 장르 DB"는 **161개로 큐레이션한
 >   Taxonomy v3**로 정정한다(아래 본문 반영).
 > - **현재 방향은 [`../README.md`](../README.md)와
->   [`measurement-and-hypothesis-protocol.md`](measurement-and-hypothesis-protocol.md)를
->   참조.** 아래는 시점 기록용으로 보존한다.
+>   [`../experiments/experiment-log.md`](../experiments/experiment-log.md)를
+>   참조.** 아래는 시점 기록용으로 보존하며, 본문에 등장하는 상용 stem 분리 도구
+>   관련 서술은 전부 ToS 문제로 배제된 폐기 방향이다.
 
 ## 프로젝트 비전
 
@@ -39,50 +40,24 @@ UI 수준: 깔끔하고 직관적인 웹 앱
 ### 2. 미등록 데모 분석 가능
 Spotify/Shazam에 없는 곡도 오디오 파일만으로 전체 분석 가능.
 
-### 3. K-pop 특화 10+ stem 분리 (자체 모델)
-LALAL.AI의 10-stem 결과를 ground truth로 활용한 knowledge distillation 방식.
-자체 모델로 서빙하여 곡당 $0.03 수준의 저비용 운영.
+### 3. K-pop 특화 stem 분리
+> ⚠️ 폐기된 방향. 상용 stem 분리 도구의 결과를 ground truth로 한 distillation으로
+> 10-stem 자체 모델을 만들려 했으나, **해당 도구의 ToS 문제로 배제**했다.
+> 현재는 Demucs stem 분리를 그대로 사용한다.
 
 ### 4. 레퍼런스 확장 탐색
 곡 → 유사곡 리스트 → 선택 → 또 확장하는 탐색 트리 방식 디스커버리.
 
 ---
 
-## 핵심 전략: Knowledge Distillation
+## 핵심 전략 (폐기됨): stem 분리 distillation
 
-### 개념
-"큰 모델(LALAL.AI)의 지식을 작은 모델(자체 Demucs)에 옮기는 기법"
-
-LALAL.AI를 직접 서비스에 사용하면 2,000곡 × $4.50 = $9,000/프로젝트.
-자체 모델을 서비스에 사용하면 2,000곡 × $0.03 = $60/프로젝트.
-
-LALAL.AI는 학습 데이터 생성에만 일회성으로 사용하고,
-실서비스는 자체 모델로 운영하여 비용 150배 절감.
-
-### 프로세스
-
-```
-Step 1: LALAL.AI로 K-pop 200곡을 10-stem 분리 (일회성 $150)
-        → "이 곡의 피아노는 이렇게 들려야 해" = 정답지 (ground truth)
-
-Step 2: 같은 200곡의 원본(믹스) + LALAL.AI stem 쌍을 학습 데이터로 구성
-        + Slakh2100 (2,100곡 멀티트랙, 무료)
-        + K-pop MIDI → VST 합성 (500곡, 무료)
-        = 총 ~2,800곡 학습 데이터
-
-Step 3: Demucs를 base model로 fine-tuning
-        → 10+ stem 분리가 가능한 자체 모델 생성
-
-Step 4: LALAL.AI 결과 vs 자체 모델 결과를 SDR로 비교
-        → 반복 개선하여 품질 수렴
-
-Step 5: 자체 모델을 Replicate에 배포 → SoundTag 서비스에 통합
-```
-
-### 품질 목표
-- LALAL.AI 대비 70-80% SDR 달성이 1차 목표
-- 프로듀서 멀티트랙 추가 학습으로 점진적 개선
-- K-pop 특화 패턴(808, 레이어드 신스, 보컬 프로세싱)에서 LALAL.AI보다 나은 결과 가능
+> ⚠️ **이 방향 전체가 폐기되었다.** 초기엔 상용 stem 분리 도구의 10-stem 결과를
+> ground truth로 한 knowledge distillation으로 자체 분리 모델을 만들려 했으나,
+> **해당 도구의 ToS(이용약관) 문제로 접근 자체를 배제**했다. 현재는 Demucs stem
+> 분리를 그대로 사용하며, 프로젝트의 ML 핵심은 stem 분리가 아니라
+> **장르 분류의 측정 체계 재설계**(source-type leakage 진단)로 이동했다.
+> 상세 distillation/비용 전략은 폐기되었으므로 생략한다 — [`../README.md`](../README.md) 참조.
 
 ---
 
@@ -324,9 +299,9 @@ Step 5: 자체 모델을 Replicate에 배포 → SoundTag 서비스에 통합
 
 ## 포트폴리오 임팩트
 
-1. **Knowledge Distillation 실전 적용**: 상용 모델의 지식을 자체 모델로 이전하는 ML 기법
-2. **전체 ML 파이프라인**: 데이터 수집 → 합성 → 학습 → 벤치마크 → 서빙
-3. **비용 최적화 설계**: $9,000 → $60으로 99.3% 비용 절감 아키텍처
+1. **측정 체계 재설계**: validation 77.6%가 source-type leakage에 의한 가짜 신호임을 진단하고 방법론을 재설계 (현재 핵심 서사 — [`../README.md`](../README.md) 참조)
+2. **전체 ML 파이프라인**: 데이터 수집 → 학습 → leakage 진단 → measurement-first 재설계
+3. **저비용 아키텍처**: 상용 API 의존 대신 Demucs/오픈 모델 기반으로 운영비 최소화
 4. **실사용자 피드백**: A&R 현업이 실제 사용하는 프로덕션 서비스
 5. **도메인 전문성**: K-pop A&R 경험 × ML 엔지니어링의 유일한 교차점
 6. **시장 타이밍**: Spotify API 폐쇄 시점에 대체 인프라 구축
