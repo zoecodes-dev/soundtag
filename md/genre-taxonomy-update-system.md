@@ -1,4 +1,9 @@
-# SoundTag Genre Taxonomy — 자동 업데이트 시스템 설계
+# SoundTag Genre Taxonomy — 자동 업데이트 시스템 설계 (과거 기록, 2026-03-18)
+
+> **📌 Taxonomy v3(161 genres) 큐레이션 시점의 설계 기록이다.** 장르 택소노미 큐레이션
+> 방법론과 A&R 필터링 원칙은 여전히 유효하다. 단, 이후 분류 모델 방향이
+> **dual-model(Model A 드럼루프 / Model B 풀트랙)**로 바뀌었으므로, 이 택소노미가
+> 어디에 어떻게 쓰이는지는 [`../README.md`](../README.md) 기준을 따른다.
 
 ## 1. 이번 세션에서 실제로 한 일 (수동 프로세스 기록)
 

@@ -1,4 +1,10 @@
-# SoundTag 오디오 분류 모델 리서치 — Day 6
+# SoundTag 오디오 분류 모델 리서치 — Day 6 (과거 기록, 2026-03-19)
+
+> **📌 모델 선정 시점(Day 6)의 리서치 기록이다.** 아래 CLAP zero-shot 한계 분석은
+> 유효한 자료지만, 이후 방향은 **AST 채택 → dual-model(Model A 드럼루프 /
+> Model B 풀트랙)**로 진화했고, "161개 단일 분류" 전제도 바뀌었다.
+> **최신 방향은 [`../README.md`](../README.md)와
+> [`measurement-and-hypothesis-protocol.md`](measurement-and-hypothesis-protocol.md) 참조.**
 
 ## 문제 정의
 

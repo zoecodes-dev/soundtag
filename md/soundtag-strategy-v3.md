@@ -1,4 +1,15 @@
-# SoundTag v3 — 최종 프로젝트 전략
+# SoundTag v3 — 초기 프로젝트 전략 (과거 기록)
+
+> **📌 이 문서는 초기(Day 2 시점) 제품 전략 기록이다. 이후 방향이 크게 바뀌었다.**
+> - **10-stem 분리 + knowledge distillation 비전은 보류**되었다. 학습 데이터 생성에
+>   쓰려던 **LALAL.AI는 초기 검토 후 ToS(이용약관) 문제로 제외**했다. 따라서 본문의
+>   "LALAL.AI 수준 목표 / ground truth" 관련 서술은 폐기된 방향이다.
+> - 장르 분류는 **CLAP+MLP(161 genres) → AST → dual-model(Model A 드럼루프 /
+>   Model B 풀트랙)**로 진화했다. 본문의 "6,043개 장르 DB"는 **161개로 큐레이션한
+>   Taxonomy v3**로 정정한다(아래 본문 반영).
+> - **현재 방향은 [`../README.md`](../README.md)와
+>   [`measurement-and-hypothesis-protocol.md`](measurement-and-hypothesis-protocol.md)를
+>   참조.** 아래는 시점 기록용으로 보존한다.
 
 ## 프로젝트 비전
 
@@ -8,7 +19,7 @@ SoundTag은 K-pop A&R 실무자를 위한 음악 자동 분석 플랫폼이다.
 등록되지 않은 데모 상태의 곡이라도 업로드하면:
 
 1. **개별 악기를 10+ stem으로 분리** (자체 모델, LALAL.AI 수준 목표)
-2. **세부 장르를 자동 태깅** (trip-hop, trap soul 수준, 6,043개 장르 DB)
+2. **세부 장르를 자동 태깅** (trip-hop, trap soul 수준, 161개 큐레이션 장르 DB / Taxonomy v3)
 3. **발매곡에서 유사곡을 추천** (Musicae + ReccoBeats + CLAP 벡터 검색)
 4. **레퍼런스 1곡 기준으로 유사곡 리스트를 확장 탐색** (탐색 트리)
 
@@ -94,7 +105,7 @@ Step 5: 자체 모델을 Replicate에 배포 → SoundTag 서비스에 통합
 - Musicae API: Spotify 대체 (audio features, recommendations, related artists)
 - ReccoBeats API: 무료, 수백만 곡 DB + 오디오 업로드 분석
 - Supabase pgvector: CLAP 임베딩 벡터 검색
-- 자체 장르 DB: 6,043개 장르 CLAP 임베딩 (구축 완료)
+- 자체 장르 DB: Every Noise 6,043개를 **161개로 큐레이션(Taxonomy v3)**한 장르 임베딩
 
 ### 목표 stem 분류 (10+ stems)
 1. Lead Vocal
@@ -155,7 +166,7 @@ Step 5: 자체 모델을 Replicate에 배포 → SoundTag 서비스에 통합
 - BPM, 키, 에너지, 댄서빌리티, stem prominence 차트
 
 ### 기능 2: 세부 장르 자동 태깅
-- CLAP 오디오 임베딩 × 6,043개 장르 DB
+- CLAP 오디오 임베딩 × 161개 큐레이션 장르 DB (Taxonomy v3)
 - 상위 10-20개 장르를 유사도 %와 함께 표시
 
 ### 기능 3: 유사곡 추천
@@ -229,7 +240,7 @@ Step 5: 자체 모델을 Replicate에 배포 → SoundTag 서비스에 통합
 **Week 7-8:**
 - [x] Demucs 4-stem 분리 파이프라인 (완료)
 - [x] librosa/Essentia 기본 분석 (완료)
-- [x] CLAP 임베딩 + 6,043 장르 DB (완료)
+- [x] CLAP 임베딩 + 161개 큐레이션 장르 DB (Taxonomy v3)
 - [ ] 자체 10-stem 모델을 soundtag.py에 통합
 - [ ] 장르 매칭 + prominence 분석 업데이트 (10-stem 기반)
 
@@ -273,12 +284,12 @@ Step 5: 자체 모델을 Replicate에 배포 → SoundTag 서비스에 통합
 - [x] 전체 stem prominence 비교
 - [x] 원커맨드 파이프라인 (soundtag.py)
 - [x] CLAP 임베딩 + 텍스트-오디오 유사도 테스트
-- [x] 6,043개 장르 임베딩 DB 구축
+- [x] 장르 임베딩 DB 구축 (이후 161개로 큐레이션 → Taxonomy v3)
 - [x] 레퍼런스 DB 전략 확정
 - [x] Knowledge distillation 전략 확정
 
 ### Day 3 예정
-- [ ] 6,043개 장르 × GOT7 Python 매칭 테스트
+- [ ] 161개 큐레이션 장르 × GOT7 Python 매칭 테스트
 - [ ] soundtag.py에 장르 매칭 통합
 
 ---

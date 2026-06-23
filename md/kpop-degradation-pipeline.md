@@ -1,4 +1,9 @@
-# SoundTag — K-pop Production Degradation Pipeline (전략 문서 부록)
+# SoundTag — K-pop Production Degradation Pipeline (초기 실험 기록, Day 2 단계)
+
+> **📌 이 문서는 초기 10-stem 분리 비전 시절의 합성 데이터 파이프라인 설계다.**
+> 클린 stem에 K-pop 프로덕션 이펙트를 합성해 stem-separation 학습 데이터를 만들려던
+> 방향으로, 해당 비전은 현재 **보류** 상태다. 코드 자체는 재사용 가능한 자료로 보존한다.
+> **현재 방향은 [`../README.md`](../README.md) 참조.**
 
 ## 목적
 
